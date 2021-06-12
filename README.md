@@ -1,4 +1,4 @@
 # custommonopolygame
 here you can create your own monopoly cards to play
 
-**this is the first version of the game so there is still some bugs ***
+**this is the first version of the game so there is still some bugs**
