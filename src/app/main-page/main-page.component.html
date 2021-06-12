@@ -1,0 +1,62 @@
+<div [ngClass]="{ opacity00: ishidden }">
+  <div class="hero-image">
+    <div class="contenido-header">
+      <div>
+        <h1>Play classic Monopoly game in a new way</h1>
+        <a class="btn btn-primary" [routerLink]="['/create']"> Create Cards</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="contenedor tarjetas-presentacion">
+    <h2>Monopoly is funny</h2>
+
+    <div class="contendor-tarjetas-presentacion">
+      <!-- <app-info-cards *ngFor="let x of numbers"></app-info-cards> -->
+      <div class="tarj-pres" *ngFor="let tarjeta of tarjetasInfo">
+        <img [src]="getImgSrc(tarjeta)" alt="Card image cap" />
+
+        <div class="tarj-pres-body">
+          <h3>{{ tarjeta.title }}</h3>
+          <p class="tarj-pres-text">
+            <!-- You can make your custom cards, be creative and create awesome cards -->
+            {{ tarjeta.info }}
+          </p>
+          <a class="button button-blue" routerLink="{{ tarjeta.link }}">{{
+            tarjeta.txtbtn
+          }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-page">
+    <div class="myparallax toparallax">
+      <div class="center-elements-flex black-back">
+        <div>
+          <h3>Follow us in our social network</h3>
+          <app-social-media-nav></app-social-media-nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor">
+    <div>
+      <p class="important-info-page">
+        Welcome to xoxutlazgames monopo...y game, in this page you will be able
+        to play games cards based of buying properties such as "monopoly" or
+        "turista mundial" in addition to create your own cards, so be creative
+        and create your own monopoly version. this is the alpha version we're
+        still working on improving the game. there are still some bugs, if you
+        find one, or if you have an idea that you belive that could fit with the
+        game please let us know through our social network.. in order to play we
+        firmly recomend to follow the instructions,they are quite tedious, but
+        they are mostly neccessary only once.feel free or using the page for
+        your matches. you help us a lot if you share your cards, please if you
+        make cards send us the text(json), so in the future more people will be
+        able to play your own cards.
+      </p>
+    </div>
+  </section>
+</div>

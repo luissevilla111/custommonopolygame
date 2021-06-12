@@ -1,0 +1,24 @@
+<header
+  class="contenedor nav-bar-main"
+  appScroll
+  [ngClass]="{ h100vh: showLinks, 'nav-with-color': !isindex }"
+>
+  <div appWindowResize>
+    <a
+      ><img src="../../assets/images/logo2.png" alt="" (click)="navigate('/')"
+    /></a>
+  </div>
+  <div class="burger-icon">
+    <i class="fas fa-bars" (click)="mobileNavLink()"> </i>
+  </div>
+  <nav class="links" [ngClass]="{ 'links-showup': showLinks }">
+    <a (click)="navigate('login')" *ngIf="!this.isSomePlayer">Start</a>
+    <a (click)="navigate('game')" *ngIf="this.isSomePlayer">Game</a>
+    <a (click)="navigate('create')" *ngIf="!this.isSomePlayer">Create</a>
+    <a (click)="navigate('instructions')" *ngIf="!this.isSomePlayer"
+      >Instructions</a
+    >
+  </nav>
+
+  <!-- *ngIf="!ismobile || showLinks" -->
+</header>

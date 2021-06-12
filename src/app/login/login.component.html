@@ -1,0 +1,175 @@
+<div class="contenedor-login contenedor-after-nav">
+  <div class="contenedor-login-inside">
+    <div class="contenedor-formulario">
+      <h3 [@changeText]="type">{{ texto | uppercase }}</h3>
+      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <div class="wrapper-login-form">
+          <div class="input-data">
+            <input
+              type="email"
+              name="emaillogin"
+              id="emaillogin"
+              formControlName="userEmail"
+            />
+            <label
+              for="emaillogin"
+              [ngClass]="{ 'label-float-up': formLogin.get('userEmail').value }"
+            >
+              Room ID</label
+            >
+            <div class="underline-input"></div>
+            <p
+              *ngIf="
+                !formLogin.get('userEmail').valid &&
+                formLogin.get('userEmail').touched
+              "
+              style="margin: 1rem 0; color: red"
+            >
+              Invalid Room id (only numbers 5-7 max)
+            </p>
+          </div>
+        </div>
+
+        <div class="wrapper-login-form">
+          <div class="input-data">
+            <input
+              type="text"
+              name="pwdlogin"
+              id="pwdlogin"
+              formControlName="userPwd"
+            />
+            <label
+              for="pwdlogin"
+              [ngClass]="{ 'label-float-up': formLogin.get('userPwd').value }"
+            >
+              UserName</label
+            >
+            <div class="underline-input"></div>
+            <p
+              *ngIf="
+                !formLogin.get('userPwd').valid &&
+                formLogin.get('userPwd').touched
+              "
+              style="margin: 0rem 0; color: red"
+            >
+              Invalid (min 4 characteres)
+            </p>
+          </div>
+        </div>
+
+        <div class="wrapper-login-form" *ngIf="type === 'signup'">
+          <div class="input-data">
+            <input
+              type="text"
+              name="endpoint"
+              id="endpoint"
+              formControlName="endpointDB"
+              [value]="type"
+            />
+            <label
+              for="endpoint"
+              [ngClass]="{
+                'label-float-up': formLogin.get('endpointDB').value
+              }"
+              >Firebase Link</label
+            >
+          </div>
+        </div>
+
+        <div class="contenedor-button-100" [@changeText]="type">
+          <button
+            class="button button-red-gradient diplay-block"
+            [disabled]="!this.formLogin.valid"
+          >
+            {{ texto | uppercase }}
+          </button>
+        </div>
+
+        <div class="link-signup">
+          <a [@changeText]="type"
+            >{{ textoInfo[index][0] }}
+            <span (click)="changeMod()"> {{ textoInfo[index][1] }} </span>
+          </a>
+        </div>
+
+        <ul class="contenedor-login-soc-neet">
+          <li class="icon-social-login">
+            <a><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="icon-social-login">
+            <a><i class="fab fa-google"></i></a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+
+  <div class="cont-img-login">
+    <!-- <img src="../../assets/images/monomoneyback.jpg" alt=""> -->
+    <div [@imgChange]="imgChange"></div>
+    <div>
+      <h4 [@changeTxt]="changeTxt">{{ h4txt }}</h4>
+    </div>
+  </div>
+</div>
+
+<div class="alert-user-opc center-elements-flex" *ngIf="iswaitingPla">
+  <div class="lovi-room">
+    <h4>Waiting for more players Room: {{ roomId }}</h4>
+
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <ul>
+      <li *ngFor="let player of playerList; let i = index">
+        <div>
+          <p>{{ player.name }}</p>
+          <i
+            class="fas fa-times-circle"
+            (click)="removePlayerFromList(i)"
+            *ngIf="i > 0"
+          ></i>
+          <i class="fas fa-user" *ngIf="i == 0"></i>
+        </div>
+      </li>
+    </ul>
+
+    <div class="cont-buttons">
+      <button class="button button-blue" (click)="StartNewGame(true)">
+        Start
+      </button>
+
+      <button class="button btn-success" (click)="StartNewGame(false)">
+        Continue
+      </button>
+      <button class="button button-red-gradient" (click)="onCancelRoom()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+<div class="alert-user-opc center-elements-flex" *ngIf="iswaitingPlaClient">
+  <div class="lovi-room">
+    <h4>Let's Wait to the game starts</h4>
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div>
+      <button class="button button-red-gradient" (click)="onCancelEnterRoom()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

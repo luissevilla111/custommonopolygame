@@ -1,0 +1,267 @@
+<div class="contenedor-after-nav">
+  <div class="container-my-view-edito">
+    <div class="cont-form-create-card">
+      <form
+        class="formulario-create-cards"
+        #f="ngForm"
+        (ngSubmit)="addCardToArray(f)"
+      >
+        <div class="topCards-edit">
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="t{{ idInput }}itlecard"
+                id="titlecard"
+                [(ngModel)]="card.title"
+                required
+              />
+              <label
+                for="titlecard"
+                [ngClass]="{ 'label-float-up': card.title }"
+                >Title Card</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="center-elements-flex" (click)="pickColour()">
+            <i
+              class="fas fa-palette"
+              [ngStyle]="{ color: card.color, fontSize: '2.5rem' }"
+            ></i>
+          </div>
+        </div>
+
+        <div class="form-createcards-grid">
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="number"
+                name="r{{ idInput }}entcard"
+                id="rentcard"
+                [(ngModel)]="card.rent"
+                required
+              />
+              <label for="rentcard" [ngClass]="{ 'label-float-up': card.rent }"
+                >Rent
+              </label>
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="h{{ idInput }}omeone"
+                id="homeone"
+                [(ngModel)]="card.homes[0]"
+                required
+              />
+              <label
+                for="homeone"
+                [ngClass]="{ 'label-float-up': card.homes[0] }"
+                >Home 1</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="h{{ idInput }}ometwo"
+                id="hometwo"
+                [(ngModel)]="card.homes[1]"
+                required
+              />
+              <label
+                for="hometwo"
+                [ngClass]="{ 'label-float-up': card.homes[1] }"
+                >Home 2</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="h{{ idInput }}omethree"
+                id="homethree"
+                [(ngModel)]="card.homes[2]"
+                required
+              />
+              <label
+                for="homethree"
+                [ngClass]="{ 'label-float-up': card.homes[2] }"
+                >Home 3</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="h{{ idInput }}omefour"
+                id="homefour"
+                [(ngModel)]="card.homes[3]"
+                required
+              />
+              <label
+                for="homefour"
+                [ngClass]="{ 'label-float-up': card.homes[3] }"
+                >Home 4</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="h{{ idInput }}otel"
+                id="hotel"
+                [(ngModel)]="card.homes[4]"
+                required
+              />
+              <label for="hotel" [ngClass]="{ 'label-float-up': card.homes[4] }"
+                >Hotel</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="p{{ idInput }}ropvalue"
+                id="propvalue"
+                [(ngModel)]="card.valuePro"
+                required
+              />
+              <label
+                for="propvalue"
+                [ngClass]="{ 'label-float-up': card.valuePro }"
+                >Property Value</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+
+          <div class="wrapper-login-form">
+            <div class="input-data">
+              <input
+                type="text"
+                name="p{{ idInput }}ricebuilding"
+                id="pricebuilding"
+                [(ngModel)]="card.buildPrices"
+                required
+              />
+              <label
+                for="pricebuilding"
+                [ngClass]="{ 'label-float-up': card.buildPrices }"
+                >price for building</label
+              >
+              <div class="underline-input"></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <button
+            class="button button-blue"
+            type="submit"
+            [disabled]="!f.valid"
+          >
+            {{ !isEditingCard ? "Create" : "Update" }}
+          </button>
+          <button
+            class="button btn-danger"
+            type="button"
+            *ngIf="isEditingCard && packageCards.length > 0"
+            (click)="eliminateCard()"
+          >
+            Eliminate
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div
+      class="alert-user-opc center-elements-flex"
+      *ngIf="ispickingColour"
+      (click)="closeColourPicker()"
+    >
+      <div class="contenedor-c-picker" (click)="$event.stopPropagation()">
+        <color-sketch
+          color="{{ card.color }}"
+          (onChangeComplete)="changeComplete($event)"
+        ></color-sketch>
+      </div>
+    </div>
+
+    <div class="createcard-cards-container">
+      <app-gcards [card]="card" [owner]="owner" [indexCard]="i"></app-gcards>
+      <!-- <input [(colorPicker)]="color" [style.background]="color" /> -->
+    </div>
+  </div>
+
+  <app-paginadorofcards
+    [packageCards]="packageCards"
+    *ngIf="packageCards.length > 0"
+  ></app-paginadorofcards>
+  <!--  <ul class="list-paginador-cards" *ngIf="packageCards.length > 0">
+    <li>
+      <i
+        class="fas fa-arrow-left"
+        [ngStyle]="{ opacity: startNumber >= 5 ? 1 : 0.7 }"
+        (click)="showElemntsList(-5)"
+      ></i>
+    </li>
+    <li
+      *ngFor="
+        let cartaind of packageCards | slice: startNumber:startNumber + 5;
+        let i = index
+      "
+    >
+      <p (click)="editCard(i)" style="cursor: pointer">
+        {{ i + 1 + startNumber }}
+      </p>
+    </li>
+    <li>
+      <i
+        class="fas fa-arrow-right"
+        [ngStyle]="{
+          opacity: packageCards.length > startNumber + 5 ? 1 : 0.7
+        }"
+        (click)="showElemntsList(5)"
+      ></i>
+    </li>
+  </ul> -->
+
+  <div class="cont-json-cards">
+    <textarea name="" id="" [(ngModel)]="jsonTxt"></textarea>
+  </div>
+
+  <div
+    style="width: 90%; margin: 0 auto; display: flex; justify-content: right"
+  >
+    <a style="font-size: 2rem" [routerLink]="['/mailcardsgenerator']"
+      >Go to create mailcards</a
+    >
+  </div>
+</div>

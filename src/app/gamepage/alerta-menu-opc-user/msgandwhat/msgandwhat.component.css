@@ -1,0 +1,47 @@
+/* .cont-mensaje-card {
+  border: 0.2rem solid black;
+  background: transparent;
+  width: 80%;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .cont-mensaje-card {
+    width: 60%;
+  }
+}
+@media (min-width: 768px) {
+  .cont-mensaje-card {
+    width: 40%;
+  }
+}
+
+.header-msg-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 0.2rem solid black;
+}
+.header-msg-card div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.header-msg-card i {
+  color: white;
+  font-size: 2.2rem;
+}
+
+.contenedor-mensaje-text {
+  text-align: center;
+  background: white;
+
+  border: 0.2rem solid black;
+  min-height: 15rem;
+  padding: 3rem;
+}
+.contenedor-mensaje-text p {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 700;
+}
+ */

@@ -1,0 +1,8 @@
+.contenedor-buttons-menu-game {
+  width: 50%;
+  margin: 0rem auto;
+  margin-top: 7rem;
+  display: grid;
+  row-gap: 5rem;
+  text-align: center;
+}

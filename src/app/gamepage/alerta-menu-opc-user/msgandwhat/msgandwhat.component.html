@@ -1,0 +1,21 @@
+<div class="cont-mensaje-card">
+  <div
+    class="header-msg-card"
+    [ngStyle]="{ background: backColor === 1 ? '#25d366' : '#0084ff' }"
+  >
+    <div>
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <!-- <p>Monopoly</p> -->
+    <div>
+      <i class="fas fa-phone"></i>
+      <i class="fas fa-video"></i>
+      <i class="fas fa-comment-dots"></i>
+    </div>
+  </div>
+
+  <div class="contenedor-mensaje-text">
+    <p>{{ this.message }}</p>
+  </div>
+</div>

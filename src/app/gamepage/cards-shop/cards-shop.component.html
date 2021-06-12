@@ -1,0 +1,6 @@
+<h2>{{ h2title }}</h2>
+<div class="contenedor-cards-monopoly">
+  <div *ngFor="let card of cards; let i = index">
+    <app-gcards [card]="card" [owner]="owner" [indexCard]="i"></app-gcards>
+  </div>
+</div>

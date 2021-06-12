@@ -1,0 +1,112 @@
+ul.contenedor-social-media {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  ul.contenedor-social-media {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+ul.contenedor-social-media li {
+  cursor: pointer;
+  position: relative;
+  margin: 0 2rem;
+}
+
+ul.contenedor-social-media li a {
+  text-decoration: none;
+}
+
+ul.contenedor-social-media li a i {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #cccc;
+}
+
+ul.contenedor-social-media li a i {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #cccc;
+  text-align: center;
+}
+
+ul.contenedor-social-media li::before {
+  font-family: "Font Awesome\ 5 brands";
+  /* font-family: fontAwesome; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 5rem;
+  height: 0%;
+  overflow: hidden;
+  transition: 0.3s ease-in-out all;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ul li:nth-child(1)::before {
+  content: "\f39e";
+  color: #3b5998;
+}
+
+ul li:nth-child(2)::before {
+  content: "\f099";
+  color: #1da1f2;
+}
+
+ul li:nth-child(3)::before {
+  content: "\e07b";
+  color: #010101;
+}
+
+ul li:nth-child(4)::before {
+  content: "\f167";
+  color: #c4302b;
+}
+
+ul li:nth-child(5)::before {
+  content: "\f16d";
+  color: #c13584;
+} */
+
+ul li:nth-child(1) a i {
+  color: #3b5998;
+}
+
+ul li:nth-child(2) a i {
+  color: #1da1f2;
+}
+
+ul li:nth-child(3) a i {
+  color: #010101;
+}
+
+ul li:nth-child(4) a i {
+  color: #c4302b;
+}
+
+ul li:nth-child(5) a i {
+  color: #c13584;
+}
+ul li:hover::before {
+  height: 100%;
+}
+
+ul.contenedor-social-media li a {
+  text-decoration: none;
+}

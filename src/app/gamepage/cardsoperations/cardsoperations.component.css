@@ -1,0 +1,22 @@
+.cont-players-list {
+  width: 80%;
+  background: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cont-players-list h4 {
+  margin: 1rem 0 4rem 0;
+  color: var(--red-colour);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cont-players-list > ul {
+  padding: 0;
+  margin: 2rem auto;
+  display: grid;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}

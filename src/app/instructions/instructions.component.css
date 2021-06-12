@@ -1,0 +1,6 @@
+.istructions-stes {
+  display: grid;
+  margin: 2rem auto;
+  grid-template-columns: 100%;
+  row-gap: 1rem;
+}

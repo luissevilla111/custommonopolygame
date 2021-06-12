@@ -1,0 +1,38 @@
+<div class="content-change-money">
+  <h4>{{ txtChange }}</h4>
+
+  <div>
+    <i class="fas fa-money-bill-alt" *ngIf="CashOrMoney === 3"></i>
+    <i class="far fa-credit-card" *ngIf="CashOrMoney === 4"></i>
+    <i
+      class="fas fa-arrow-right"
+      [@moveArrow]="stateTomove"
+      (@moveArrow.done)="stateTomove = !stateTomove"
+    ></i>
+    <i class="far fa-credit-card" *ngIf="CashOrMoney === 3"></i>
+    <i class="fas fa-money-bill-alt" *ngIf="CashOrMoney === 4"></i>
+
+    <!-- icons  -->
+  </div>
+  <form
+    action=""
+    class="form-change-money"
+    (ngSubmit)="updateMoneyUser()"
+    #f="ngForm"
+  >
+    <label for=""> amount to change </label>
+    <input
+      type="number"
+      name="moneyChange"
+      id="moneyChange"
+      required
+      ngModel
+      appGreaterThZero
+      numeric
+    />
+
+    <button class="button button-blue" [disabled]="!f.valid">
+      Update Account
+    </button>
+  </form>
+</div>

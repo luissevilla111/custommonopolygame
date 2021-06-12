@@ -1,0 +1,116 @@
+<div class="contenedor-after-nav">
+  <div class="cont-mensaje-card">
+    <div
+      class="header-msg-card"
+      [ngStyle]="{
+        background: radioOption === 'green' ? '#25d366' : '#0084ff'
+      }"
+    >
+      <div>
+        <i class="fas fa-arrow-left"></i>
+      </div>
+
+      <!-- <p>Monopoly</p> -->
+      <div>
+        <i class="fas fa-phone"></i>
+        <i class="fas fa-video"></i>
+        <i class="fas fa-comment-dots"></i>
+      </div>
+    </div>
+
+    <div class="contenedor-mensaje-text">
+      <textarea name="" id="" [(ngModel)]="message"></textarea>
+    </div>
+  </div>
+
+  <app-paginadorofcards
+    [packageCards]="packageCards"
+    *ngIf="packageCards.length > 1"
+  ></app-paginadorofcards>
+  <form #f="ngForm" (ngSubmit)="newCardEmail()">
+    <div class="controls-mailcreator">
+      <div class="cont-rad-buttons-1">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="blue"
+            [(ngModel)]="radioOption"
+            (change)="radioChanged($event)"
+          />
+          <label class="form-check-label" for="inlineRadio1">Blue </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="green"
+            [(ngModel)]="radioOption"
+            (change)="radioChanged($event)"
+            [disabled]="isEditing"
+          />
+          <label class="form-check-label" for="inlineRadio2">Green</label>
+        </div>
+      </div>
+
+      <div class="typemsg">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Type of msg</label>
+          <select
+            class="form-control"
+            id="exampleFormControlSelect1"
+            [(ngModel)]="cbxMsg"
+            name="selecttypemsg"
+          >
+            <option value="recieve">Recieve</option>
+            <option value="pay">pay</option>
+            <option value="other">other</option>
+          </select>
+        </div>
+        <div class="wrapper-login-form">
+          <div class="input-data">
+            <input
+              type="number"
+              name="cantmsg"
+              id="cantmsg"
+              [(ngModel)]="moneymsg"
+              required
+            />
+            <label for="cantmsg" [ngClass]="{ 'label-float-up': moneymsg }"
+              >Money
+            </label>
+            <div class="underline-input"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cont-btn">
+        <button
+          class="button button-blue"
+          type="submit"
+          [disabled]="!f.valid || message === ''"
+        >
+          {{ !isEditing ? "Add" : "Update" }}
+        </button>
+
+        <button
+          class="button btn-danger"
+          type="button"
+          style="margin-left: 2rem"
+          *ngIf="isEditing"
+          (click)="deleteCard()"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="cont-json-cards">
+    <textarea name="" id="" [(ngModel)]="jsonTxt"></textarea>
+  </div>
+</div>

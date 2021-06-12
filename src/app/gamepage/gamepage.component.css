@@ -1,0 +1,108 @@
+.contenedor-info-user {
+  width: 100%;
+}
+
+.contenedor-info-user div:first-child {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  /* position: fixed;
+  left: 0;
+  top: 10rem;
+  background: #cccc; */
+}
+p {
+  font-size: 2.3rem;
+}
+.user-money span {
+  font-weight: bold;
+}
+
+.cont-user-informacion img {
+  height: 20rem;
+  margin: 0 auto;
+  display: block;
+}
+
+h5 {
+  text-align: center;
+  font-weight: bold;
+  color: #1a2980;
+}
+
+.cont-menu-sec {
+  position: fixed;
+  bottom: 2rem;
+  right: 0.5rem;
+  /* background: red; */
+  display: grid;
+  row-gap: 3rem;
+  text-align: center;
+}
+.cont-menu-sec > div {
+  display: grid;
+  row-gap: 1.5rem;
+  grid-row: 1/2;
+  overflow: hidden;
+}
+
+.cont-menu-sec i {
+  display: block;
+  font-size: 4.5rem;
+}
+.cont-menu-sec i:hover {
+  cursor: pointer;
+}
+.fa-info-circle {
+  color: var(--blue-tone2);
+}
+
+.contenedor-icon-user {
+  position: fixed;
+  bottom: 2rem;
+  left: 0.5rem;
+  width: 70%;
+  /* display: flex;
+  justify-content: end;
+  align-items: center; */
+  /*  text-align: center;
+  z-index: 7;
+  /* background: red; */
+  writing-mode: vertical-lr;
+}
+.user-money2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(23, 182, 23);
+  transform: rotate(180deg);
+  display: inline;
+  padding-top: 1rem;
+  text-decoration: none;
+}
+.user-money2 span {
+  /* display: block; */
+
+  color: black;
+}
+
+.contenedor-icon-user i {
+  font-size: 4.5rem;
+}
+
+/* .fa-whatsapp {
+  color: #25d366;
+}
+
+.fa-facebook-messenger {
+  color: #0084ff;
+}
+
+.fa-money-bill-alt {
+  color: #804000;
+}
+
+.fa-credit-card {
+  color: var(--red-colour);
+} */

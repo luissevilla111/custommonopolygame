@@ -1,0 +1,43 @@
+.cont-build {
+  width: 80%;
+  background: white;
+  text-align: center;
+  padding: 2rem;
+}
+h4 {
+  color: var(--blue-colour);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: var(--oswald);
+}
+
+.cont-build i {
+  font-size: 4rem;
+}
+
+.contenedor-homes-i {
+  /* display: flex;
+  justify-content: space-between; */
+  width: 100%;
+}
+.contenedor-homes-i > i {
+  margin: 0 0.5rem;
+}
+
+.cont-arrows-add-res {
+  width: 40%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+.fa-home {
+  color: #f75ef5;
+}
+
+.fa-plus-circle {
+  color: #06cc17;
+}
+
+.fa-minus-circle {
+  color: red;
+}

@@ -1,0 +1,95 @@
+<div class="contenedor-after-nav">
+  <!-- <div class="contenedor-info-user">
+    <div>
+      <p class="user-money">
+        Money: <span>${{ player.money }}</span>
+      </p>
+      <p class="user-money">
+        NumProp: <span>{{ player.TotProper }}</span>
+      </p>
+    </div>
+
+    <div class="cont-user-informacion">
+      <img src="../../assets/images/help.jpg" alt="" />
+
+      <h5>{{ player.userName }}</h5>
+    </div>
+  </div> -->
+
+  <div class="contenedor-icon-user">
+    <!-- <i class="fas fa-user"></i> -->
+    <a class="user-money2" [routerLink]="['/game/shop']">
+      $<span>{{ player.money }}</span></a
+    >
+    <a class="user-money2" [routerLink]="['/game/Mycards']"
+      >NProp: <span>{{ player.TotProper }}</span></a
+    >
+    <!-- <p class="user-money2">
+      $<span>{{ player.money }}</span>
+    </p> -->
+    <!-- <p class="user-money2">
+      NumProp: <span>{{ player.TotProper }}</span>
+    </p> -->
+  </div>
+  <router-outlet> </router-outlet>
+
+  <div class="cont-menu-sec">
+    <i class="fas fa-info-circle" (click)="gameMenuItems()"></i>
+    <div>
+      <i
+        class="fab fa-whatsapp"
+        [@ic-what]
+        *ngIf="isGameMenu"
+        (click)="onActionMenu(1)"
+      ></i>
+      <i
+        class="fab fa-facebook-messenger"
+        [@ic-msg]
+        *ngIf="isGameMenu"
+        (click)="onActionMenu(2)"
+      ></i>
+      <i
+        class="fas fa-money-bill-alt"
+        [@ic-cash]
+        *ngIf="isGameMenu"
+        (click)="onActionMenu(3)"
+      ></i>
+      <i
+        class="far fa-credit-card"
+        [@ic-credit]
+        *ngIf="isGameMenu"
+        (click)="onActionMenu(4)"
+      ></i>
+
+      <i
+        class="fas fa-hand-holding-usd"
+        [@ic-pay]
+        *ngIf="isGameMenu"
+        (click)="onPay()"
+      ></i>
+
+      <i
+        class="fas fa-cash-register"
+        [@ic-cashier]
+        *ngIf="isGameMenu"
+        (click)="onCharge200()"
+      ></i>
+    </div>
+  </div>
+</div>
+
+<app-alerta-menu-opc-user
+  (closeAlert)="onActionMenu($event)"
+  *ngIf="this.isAlertaMenu"
+  [typeAlert]="this.iconSelected"
+></app-alerta-menu-opc-user>
+
+<app-cardsoperations
+  *ngIf="isoperationCard"
+  [actualCard]="selectedCard"
+  [indexCard]="selectedCardIndex"
+  [issendingMoney]="isSemdingMoney"
+>
+</app-cardsoperations>
+
+<app-buildmode *ngIf="buildMode" [info]="infoTobuildMode"></app-buildmode>

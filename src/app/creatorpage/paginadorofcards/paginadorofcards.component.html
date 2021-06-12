@@ -1,0 +1,28 @@
+<ul class="list-paginador-cards">
+  <li>
+    <i
+      class="fas fa-arrow-left"
+      [ngStyle]="{ opacity: startNumber >= 5 ? 1 : 0.7 }"
+      (click)="showElemntsList(-5)"
+    ></i>
+  </li>
+  <li
+    *ngFor="
+      let cartaind of packageCards | slice: startNumber:startNumber + 5;
+      let i = index
+    "
+  >
+    <p (click)="editCard(i)" style="cursor: pointer">
+      {{ i + 1 + startNumber }}
+    </p>
+  </li>
+  <li>
+    <i
+      class="fas fa-arrow-right"
+      [ngStyle]="{
+        opacity: packageCards.length > startNumber + 5 ? 1 : 0.7
+      }"
+      (click)="showElemntsList(5)"
+    ></i>
+  </li>
+</ul>

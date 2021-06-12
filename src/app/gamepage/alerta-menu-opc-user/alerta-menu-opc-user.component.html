@@ -1,0 +1,18 @@
+<div class="alert-user-opc center-elements-flex" (click)="onActionMenuChild()">
+  <div
+    (click)="$event.stopPropagation()"
+    [ngSwitch]="typeAlert"
+    style="width: 100%"
+  >
+    <app-changing-money
+      *ngSwitchCase="3"
+      [CashOrMoney]="typeAlert"
+    ></app-changing-money>
+    <app-changing-money
+      *ngSwitchCase="4"
+      [CashOrMoney]="typeAlert"
+    ></app-changing-money>
+    <app-msgandwhat *ngSwitchCase="1" [backColor]="typeAlert"></app-msgandwhat>
+    <app-msgandwhat *ngSwitchCase="2" [backColor]="typeAlert"></app-msgandwhat>
+  </div>
+</div>

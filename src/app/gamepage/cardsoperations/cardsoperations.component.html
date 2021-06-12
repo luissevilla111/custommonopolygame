@@ -1,0 +1,34 @@
+<div class="alert-user-opc center-elements-flex" (click)="closeOperationMenu()">
+  <div class="cont-players-list" (click)="$event.stopPropagation()">
+    <h4>Select the user to make the deal</h4>
+    <form
+      action=""
+      class="form-change-money"
+      *ngIf="issendingMoney"
+      #f="ngForm"
+    >
+      <label for=""> Deposit $$ </label>
+      <input
+        type="number"
+        name="moneyChange"
+        id="moneyChange"
+        required
+        [(ngModel)]="money"
+        appGreaterThZero
+        numeric
+      />
+    </form>
+
+    <ul>
+      <li *ngFor="let player of listPlayers">
+        <button
+          class="button btn-success"
+          [disabled]="!(player.name !== miplayer.userName.toUpperCase())"
+          (click)="sendMsg(player.name.toUpperCase())"
+        >
+          {{ player.name }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

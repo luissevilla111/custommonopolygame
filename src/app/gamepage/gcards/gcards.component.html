@@ -1,0 +1,120 @@
+<div class="single-card-content">
+  <div
+    class="margin-card"
+    [ngStyle]="{
+      opacity: card.ismortagge === 1 ? 0.8 : 1,
+      background: card.ismortagge === 1 ? '#808080' : ''
+    }"
+  >
+    <div
+      class="content-tittle-card"
+      [ngStyle]="{ background: card.color }"
+      (click)="onCardTitlteClicked()"
+    >
+      <!-- <p>Property Name</p> -->
+
+      <h3>{{ card.title | uppercase }}</h3>
+    </div>
+
+    <div>
+      <h4 style="font-weight: 600">Rent {{ card.rent }}</h4>
+    </div>
+    <div
+      class="second-part"
+      (click)="optCard(card)"
+      *ngIf="showRestCard || this.owner === 'shop' || this.owner === 'creator'"
+      [@part2CardsTrigger]
+    >
+      <div class="content-info-single-card">
+        <!-- <h4>Rent {{card.rent}}</h4> -->
+
+        <ul class="list-prices">
+          <li>
+            <ul>
+              <li>
+                <p>home 1</p>
+              </li>
+              <li>
+                <p>${{ card.homes[0] }}</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <p>home 2</p>
+              </li>
+              <li>
+                <p>${{ card.homes[1] }}</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <p>home 3</p>
+              </li>
+              <li>
+                <p>${{ card.homes[2] }}</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <p>home 4</p>
+              </li>
+              <li>
+                <p>${{ card.homes[3] }}</p>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <ul>
+              <li>
+                <p>Hotel</p>
+              </li>
+              <li>
+                <p>${{ card.homes[4] }}</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h5>Valor property ${{ card.valuePro }}</h5>
+      </div>
+
+      <div class="card-invest-cost">
+        <p>Home ${{ card.buildPrices }} each one</p>
+        <p>Hotels ${{ card.buildPrices }} + 4 homes</p>
+      </div>
+
+      <div class="card-footer">
+        <p>
+          if a player have all the properties of any group colour, the rens se
+          dublica
+        </p>
+        <div
+          class="conenedor-opc-cards"
+          *ngIf="this.owner !== 'shop' && this.owner !== 'creator'"
+        >
+          <i
+            class="fas fa-university"
+            (click)="hipotecar(card.valuePro)"
+            [ngStyle]="{ color: card.ismortagge ? 'white' : '' }"
+          ></i>
+          <i class="fas fa-exchange-alt" (click)="changeProperty()"></i>
+          <div>
+            <i class="fas fa-home" (click)="build()"></i>
+            <p style="font-size: 2rem; font-weight: bold; color: #f75ef5">
+              {{ card.buildNum }}
+            </p>
+          </div>
+          <i class="fas fa-window-close" (click)="returnPro(card)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <p>C 2021 pinzon</p> -->
+</div>

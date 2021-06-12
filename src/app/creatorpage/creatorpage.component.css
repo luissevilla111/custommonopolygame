@@ -1,0 +1,58 @@
+.createcard-cards-container {
+  width: 100%;
+  max-width: 50rem;
+  margin: 2rem auto;
+}
+
+@media (min-width: 768px) {
+  .createcard-cards-container {
+    margin: 0rem auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-my-view-edito {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+.contenedor-c-picker {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .contenedor-c-picker {
+    width: 40%;
+  }
+}
+
+.formulario-create-cards {
+  padding: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+}
+
+.topCards-edit {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.square-picker {
+  width: 50%;
+  margin: 0 auto;
+  height: 50%;
+  background: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-createcards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  row-gap: 1rem;
+}
